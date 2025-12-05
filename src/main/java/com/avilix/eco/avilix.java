@@ -10,12 +10,12 @@ import net.neoforged.bus.api.SubscribeEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(AvilixECO.MODID)
-public class AvilixECO {
-    public static final String MODID = "avilixeco";
+@Mod(avilix.MODID)
+public class avilix {
+    public static final String MODID = "avilix";
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public AvilixECO(IEventBus modBus) {
+    public avilix(IEventBus modBus) {
         LOGGER.info("Avilix ECO Mod инициализирован!");
 
         // Регистрируем обработчики событий

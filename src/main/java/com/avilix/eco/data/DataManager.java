@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import com.avilix.eco.AvilixECO;
+import com.avilix.eco.avilix;
 import com.avilix.eco.currency.PlayerBalance;
 
 public class DataManager {
@@ -32,15 +32,15 @@ public class DataManager {
 
             if (!Files.exists(BALANCES_FILE)) {
                 Files.writeString(BALANCES_FILE, "{}");
-                AvilixECO.LOGGER.info("Создан файл балансов");
+                avilix.LOGGER.info("Создан файл балансов");
             }
             if (!Files.exists(TRANSACTIONS_FILE)) {
                 Files.writeString(TRANSACTIONS_FILE, "[]");
-                AvilixECO.LOGGER.info("Создан файл транзакций");
+                avilix.LOGGER.info("Создан файл транзакций");
             }
 
         } catch (IOException e) {
-            AvilixECO.LOGGER.error("Ошибка создания директорий конфигурации", e);
+            avilix.LOGGER.error("Ошибка создания директорий конфигурации", e);
         }
     }
 
@@ -56,16 +56,16 @@ public class DataManager {
                     try {
                         result.put(UUID.fromString(key), value);
                     } catch (IllegalArgumentException e) {
-                        AvilixECO.LOGGER.warn("Некорректный UUID в файле балансов: {}", key);
+                        avilix.LOGGER.warn("Некорректный UUID в файле балансов: {}", key);
                     }
                 });
             }
 
-            AvilixECO.LOGGER.info("Загружено {} балансов из файла", result.size());
+            avilix.LOGGER.info("Загружено {} балансов из файла", result.size());
             return result;
 
         } catch (IOException e) {
-            AvilixECO.LOGGER.error("Ошибка загрузки балансов", e);
+            avilix.LOGGER.error("Ошибка загрузки балансов", e);
             return new HashMap<>();
         }
     }
@@ -85,7 +85,7 @@ public class DataManager {
             Files.writeString(BALANCES_FILE, json);
 
         } catch (IOException e) {
-            AvilixECO.LOGGER.error("Ошибка сохранения баланса для {}", playerId, e);
+            avilix.LOGGER.error("Ошибка сохранения баланса для {}", playerId, e);
         }
     }
 
@@ -98,10 +98,10 @@ public class DataManager {
 
             String json = GSON.toJson(toSave);
             Files.writeString(BALANCES_FILE, json);
-            AvilixECO.LOGGER.info("Сохранено {} балансов", balances.size());
+            avilix.LOGGER.info("Сохранено {} балансов", balances.size());
 
         } catch (IOException e) {
-            AvilixECO.LOGGER.error("Ошибка сохранения всех балансов", e);
+            avilix.LOGGER.error("Ошибка сохранения всех балансов", e);
         }
     }
 
@@ -126,12 +126,12 @@ public class DataManager {
             Files.writeString(TRANSACTIONS_FILE, newJson);
 
         } catch (IOException e) {
-            AvilixECO.LOGGER.error("Ошибка логирования транзакции", e);
+            avilix.LOGGER.error("Ошибка логирования транзакции", e);
         }
     }
 
     public static void saveAll() {
-        AvilixECO.LOGGER.info("Все данные сохранены");
+        avilix.LOGGER.info("Все данные сохранены");
     }
 
     // Вспомогательный класс для записи транзакций

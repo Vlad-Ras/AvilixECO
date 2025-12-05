@@ -3,14 +3,14 @@ loaderVersion="[0,)"
 license="All rights reserved"
 
 [[mods]]
-modId="aivlixeco"
+modId="avilix"
 version="1.0.0"
 displayName="Aivlix ECO"
 authors="You"
 description="Economic mod for Minecraft"
 
 [[mods.neoforge]]
-modId="aivlixeco"
+modId="avilix"
 
 [mods.neoforge.entrypoints]
-main="com.aivlix.eco.AivlixECO"
+main="com.aivlix.eco.avilix"

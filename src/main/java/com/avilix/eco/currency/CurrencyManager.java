@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-import com.avilix.eco.AvilixECO;
+import com.avilix.eco.avilix;
 import com.avilix.eco.data.DataManager;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -20,7 +20,7 @@ public class CurrencyManager {
         savedBalances.forEach((uuid, balance) -> {
             PLAYER_BALANCES.put(uuid, new PlayerBalance(uuid, balance));
         });
-        AvilixECO.LOGGER.info("Загружено {} балансов", savedBalances.size());
+        avilix.LOGGER.info("Загружено {} балансов", savedBalances.size());
     }
 
     public static double getBalance(UUID playerId) {
@@ -47,7 +47,7 @@ public class CurrencyManager {
         double newBalance = balance.add(amount);
         DataManager.saveBalance(playerId, newBalance);
 
-        AvilixECO.LOGGER.debug("Игроку {} добавлено {} Нокс (источник: {})", playerId, amount, source);
+        avilix.LOGGER.debug("Игроку {} добавлено {} Нокс (источник: {})", playerId, amount, source);
         return TransactionResult.SUCCESS;
     }
 
@@ -61,7 +61,7 @@ public class CurrencyManager {
         double newBalance = balance.remove(amount);
         DataManager.saveBalance(playerId, newBalance);
 
-        AvilixECO.LOGGER.debug("С игрока {} списано {} Нокс (причина: {})", playerId, amount, reason);
+        avilix.LOGGER.debug("С игрока {} списано {} Нокс (причина: {})", playerId, amount, reason);
         return TransactionResult.SUCCESS;
     }
 
